@@ -1,0 +1,27 @@
+- name: Install Files
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: files
+        state: present
+
+- name: Setup Files
+  hosts: windows
+  
+  tasks:
+    - name: Run Files Setup Script
+      ansible.windows.win_powershell:
+        executable: pwsh.exe
+        path: install.ps1
+        parameters:
+          FlavorParam: mocha
+          FlatAppearanceParam: true
+
+    - name: Setup Files Theme
+      debug:
+        msg:
+          - Set base theme in Files
+          - 1) Go to Settings > Appearances
+          - 2) Select 'Light' or 'Dark' base theme

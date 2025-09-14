@@ -1,0 +1,26 @@
+- name: Install NileSoft Shell
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: nilesoft-shell
+        state: present
+
+- name: Setup NileSoft Shell
+  hosts: windows
+  
+  tasks:
+    - name: Install NileSoft Shell Theme
+      win_template:
+        src: theme.nss
+        dest: '%ProgramFiles%\Nilesoft Shell\imports\theme.nss'
+      vars:
+        font: JetBrainsMono NF
+
+    - name: Reload NileSoft Shell
+      debug:
+        msg:
+          - Restart Nilesoft Shell to apply the new theme
+          - 1) Shift + Right-Click taskbar
+          - 2) Select 'Exit Explorer'

@@ -1,0 +1,20 @@
+- name: Install GlazeWM
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: glazewm
+        state: present
+
+- name: Setup GlazeWM
+  hosts: windows
+  
+  tasks:
+    - name: Install GlazeWM Config
+      win_template:
+        src: config.yaml
+        dest: C:\Users\{{ local_user }}\.glzr\glazewm\config.yaml
+
+    - name: Reload GlazeWM
+      win_command: glazewm command wm-reload-config

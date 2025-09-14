@@ -1,0 +1,30 @@
+- name: Install Flow Launcher
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: flow-launcher
+        state: present
+
+- name: Setup Flow Launcher
+  hosts: windows
+
+  tasks:
+    - name: Install Flow Launcher Config
+      win_template:
+        src: Settings.json
+        dest: '%AppData%\FlowLauncher\Settings\Settings.json'
+
+    - name: Restart Flow Launcher
+      win_shell: |
+        $proc = Get-Process Flow.Launcher
+        if ($proc) {
+          $proc.CloseMainThread()
+          Sleep 5
+          if (!$proc.started) {
+            $proc | Stop-Process -Force
+          }
+        }
+        Remove-Variable proc
+        Start-Process $env:LOCALAPPDATA\FlowLauncher\Flow.Launcher.exe

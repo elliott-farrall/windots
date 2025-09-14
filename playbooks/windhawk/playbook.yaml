@@ -1,0 +1,26 @@
+- name: Install WindHawk
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: windhawk
+        state: present
+
+- name: Setup WindHawk
+  hosts: windows
+  
+  tasks:
+    - name: Upload WindHawk Config
+      win_template:
+        src: config.reg
+        dest: C:\Users\{{ local_user }}\Downloads\config.reg
+
+    - name: Import WindHawk Config
+      win_regmerge:
+        path: C:\Users\{{ local_user }}\Downloads\config.reg
+
+    - name: Remove WindHawk Config
+      win_file:
+        path: C:\Users\{{ local_user }}\Downloads\config.reg
+        state: absent

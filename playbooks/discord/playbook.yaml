@@ -1,0 +1,24 @@
+- name: Install Discord
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: betterdiscord
+        state: present
+
+- name: Setup Discord
+  hosts: windows
+  
+  tasks:
+    - name: Install Discord Theme
+      win_template:
+        src: mocha.theme.css
+        dest: '%AppData%\BetterDiscord\themes\mocha.theme.css'
+
+    - name: Enable Discord Theme
+      debug:
+        msg:
+          - Please enable the Catppuccin Mocha theme in BetterDiscord settings
+          - 1) Go to BetterDiscord Settings > Themes
+          - 2) Enable Catppuccin Mocha

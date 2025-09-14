@@ -1,0 +1,47 @@
+- name: Setup Fonts
+  import_playbook: fonts/playbook.yaml
+
+- name: Setup Windows Themes
+  import_playbook: themes/playbook.yaml
+
+- name: Setup GlazeWM
+  import_playbook: glazewm/playbook.yaml
+
+- name: Setup YASB
+  import_playbook: yasb/playbook.yaml
+
+- name: Setup WindHawk
+  import_playbook: windhawk/playbook.yaml
+
+- name: Setup Flow Launcher
+  import_playbook: flow-launcher/playbook.yaml
+
+- name: Setup NileSoft Shell
+  import_playbook: nilesoft-shell/playbook.yaml
+
+- name: Setup Powershell
+  import_playbook: powershell/playbook.yaml
+  
+- name: Setup Windows Terminal
+  import_playbook: terminal/playbook.yaml
+
+- name: Setup Files
+  import_playbook: files/playbook.yaml
+
+- name: Setup Zen
+  import_playbook: zen/playbook.yaml
+
+- name: Setup VS Code
+  import_playbook: vscode/playbook.yaml
+
+- name: Setup Obsidian
+  import_playbook: obsidian/playbook.yaml
+
+- name: Setup Discord
+  import_playbook: discord/playbook.yaml
+
+- name: Setup Games
+  import_playbook: games/playbook.yaml
+
+# - name: Configure Startup
+#   import_playbook: startup/playbook.yaml

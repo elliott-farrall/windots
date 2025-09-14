@@ -1,0 +1,24 @@
+- name: Install YASB
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: yasb
+        state: present
+
+- name: Setup YASB
+  hosts: windows
+  
+  tasks:
+    - name: Install YASB Config
+      win_template:
+        src: config.yaml
+        dest: C:\Users\{{ local_user }}\.config\yasb\config.yaml
+
+    - name: Install YASB Theme
+      win_template:
+        src: styles.css
+        dest: C:\Users\{{ local_user }}\.config\yasb\styles.css
+      vars:
+        font: JetBrainsMono NF

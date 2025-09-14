@@ -1,0 +1,35 @@
+- name: Install Steam
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: steam
+        state: present
+
+- name: Install R2Modman
+  hosts: windows
+
+  tasks:
+    - name: Install via Scoop
+      community.windows.win_scoop:
+        name: games/r2modman
+        state: present
+
+- name: Install Nvidia App
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: nvidia-app
+        state: present
+
+- name: Install Razer Synapse
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: razer-synapse-4
+        state: present

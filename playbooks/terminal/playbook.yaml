@@ -1,0 +1,10 @@
+- name: Setup Windows Terminal
+  hosts: windows
+  
+  tasks:
+    - name: Install Terminal Settings
+      win_template:
+        src: settings.json
+        dest: '%LocalAppData%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
+      vars:
+        font: JetBrainsMono NF

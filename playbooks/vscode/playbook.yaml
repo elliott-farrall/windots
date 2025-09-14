@@ -1,0 +1,19 @@
+- name: Install VS Code
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: vscode
+        state: present
+
+- name: Setup VS Code
+  hosts: windows
+  
+  tasks:
+    - name: Install VS Code Config
+      win_template:
+        src: settings.json
+        dest: '%AppData%\Code\User\settings.json'
+      vars:
+        font: JetBrainsMono NF

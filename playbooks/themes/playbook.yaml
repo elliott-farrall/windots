@@ -1,0 +1,78 @@
+- name: Install Windows Themes
+  hosts: windows
+  
+  tasks:
+    - name: Install Catppuccin Resources
+      win_copy:
+        src: Catppuccin
+        dest: C:\Windows\Resources\Themes\Catppuccin
+
+    - name: Install Catppuccin - Frappe NA
+      win_template:
+        src: Catppuccin - Frappe NA.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Frappe NA.theme
+
+    - name: Install Catppuccin - Frappe Night NA
+      win_template:
+        src: Catppuccin - Frappe Night NA.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Frappe Night NA.theme
+
+    - name: Install Catppuccin - Frappe Night
+      win_template:
+        src: Catppuccin - Frappe Night.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Frappe Night.theme
+
+    - name: Install Catppuccin - Frappe
+      win_template:
+        src: Catppuccin - Frappe.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Frappe.theme
+
+    - name: Install Catppuccin - Latte NA
+      win_template:
+        src: Catppuccin - Latte NA.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Latte NA.theme
+
+    - name: Install Catppuccin - Latte
+      win_template:
+        src: Catppuccin - Latte.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Latte.theme
+      
+    - name: Install Catppuccin - Macchiato NA
+      win_template:
+        src: Catppuccin - Macchiato NA.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Macchiato NA.theme
+
+    - name: Install Catppuccin - Macchiato Night NA
+      win_template:
+        src: Catppuccin - Macchiato Night NA.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Macchiato Night NA.theme
+
+    - name: Install Catppuccin - Macchiato Night
+      win_template:
+        src: Catppuccin - Macchiato Night.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Macchiato Night.theme
+
+    - name: Install Catppuccin - Macchiato
+      win_template:
+        src: Catppuccin - Macchiato.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Macchiato.theme
+
+    - name: Install Catppuccin - Mocha NA
+      win_template:
+        src: Catppuccin - Mocha NA.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Mocha NA.theme
+
+    - name: Install Catppuccin - Mocha Night NA
+      win_template:
+        src: Catppuccin - Mocha Night NA.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Mocha Night NA.theme
+
+    - name: Install Catppuccin - Mocha Night
+      win_template:
+        src: Catppuccin - Mocha Night.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Mocha Night.theme
+
+    - name: Install Catppuccin - Mocha
+      win_template:
+        src: Catppuccin - Mocha.theme
+        dest: C:\Windows\Resources\Themes\Catppuccin\Catppuccin - Mocha.theme
