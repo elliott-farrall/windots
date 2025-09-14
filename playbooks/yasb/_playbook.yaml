@@ -1,0 +1,21 @@
+- name: Install YASB
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: yasb
+
+- name: Setup YASB
+  hosts: windows
+  
+  tasks:
+    - name: Install YASB Config
+      win_template:
+        src: config.yaml
+        dest: .config\yasb\config.yaml
+
+    - name: Install YASB Theme
+      win_template:
+        src: styles.css
+        dest: .config\yasb\styles.css

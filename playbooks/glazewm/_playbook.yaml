@@ -1,0 +1,25 @@
+- name: Install GlazeWM
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: glazewm
+
+- name: Setup GlazeWM
+  hosts: windows
+  collections:
+    - ansible.windows
+  
+  tasks:
+    - name: Install GlazeWM Config
+      win_template:
+        src: config.yaml
+        dest: .glzr\glazewm\config.yaml
+
+    - name: Reload GlazeWM
+      win_powershell:
+        executable: pwsh.exe
+        script: |
+          glazewm command wm-reload-config
+          $Ansible.Changed = $false

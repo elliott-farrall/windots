@@ -1,0 +1,78 @@
+- name: Initialise
+  hosts: windows
+
+  tasks:
+    - name: Import Variables
+      include_vars: ../variables/vars.yaml
+
+    - name: Import Palette
+      include_vars: ../variables/palette.yaml
+
+    - name: Configure Appearance
+      set_fact:
+        shade: '{{ "light" if theme == "latte" else "dark" }}'
+        flat: true
+
+- name: Setup Fonts
+  import_playbook: fonts/_playbook.yaml
+
+- name: Setup Windows Themes
+  import_playbook: themes/_playbook.yaml
+
+- name: Setup GlazeWM
+  import_playbook: glazewm/_playbook.yaml
+
+- name: Setup YASB
+  import_playbook: yasb/_playbook.yaml
+
+- name: Setup WindHawk
+  import_playbook: windhawk/_playbook.yaml
+
+- name: Setup Flow Launcher
+  import_playbook: flow-launcher/_playbook.yaml
+
+- name: Setup NileSoft Shell
+  import_playbook: nilesoft-shell/_playbook.yaml
+
+- name: Setup Powershell
+  import_playbook: powershell/_playbook.yaml
+
+- name: Setup Windows Terminal
+  import_playbook: terminal/_playbook.yaml
+
+- name: Setup Files
+  import_playbook: files/_playbook.yaml
+
+- name: Setup Zen
+  import_playbook: zen/_playbook.yaml
+
+- name: Setup VS Code
+  import_playbook: vscode/_playbook.yaml
+
+- name: Setup Obsidian
+  import_playbook: obsidian/_playbook.yaml
+
+- name: Setup Discord
+  import_playbook: discord/_playbook.yaml
+
+- name: Setup Games
+  import_playbook: games/_playbook.yaml
+
+- name: Configure Startup
+  hosts: windows
+
+  tasks:
+    - name: Launch Desktop Packages
+      win_scheduled_task:
+        name: Launch Desktop
+        triggers:
+          - type: logon
+
+
+        actions:
+          - path: '{{ prog_dir }}\glzr.io\GlazeWM\cli\glazewm.exe'
+          - path: '{{ prog_dir }}\Yasb\yasb.exe'
+          - path: '{{ user_dir }}\AppData\Local\FlowLauncher\Flow.Launcher.exe'
+      vars:
+        user_dir: C:\Users\{{ ansible_user | truncate(5, True, '', 0) }}
+        prog_dir: C:\Program Files

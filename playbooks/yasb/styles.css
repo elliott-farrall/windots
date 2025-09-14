@@ -1,0 +1,512 @@
+:root {
+    --rosewater: {{ palette[theme].rosewater }};
+    --flamingo: {{ palette[theme].flamingo }};
+    --pink: {{ palette[theme].pink }};
+    --mauve: {{ palette[theme].mauve }};
+    --red: {{ palette[theme].red }};
+    --maroon: {{ palette[theme].maroon }};
+    --peach: {{ palette[theme].peach }};
+    --yellow: {{ palette[theme].yellow }};
+    --green: {{ palette[theme].green }};
+    --teal: {{ palette[theme].teal }};
+    --sky: {{ palette[theme].sky }};
+    --sapphire: {{ palette[theme].sapphire }};
+    --blue: {{ palette[theme].blue }};
+    --lavender: {{ palette[theme].lavender }};
+    --text: {{ palette[theme].text }};
+    --subtext1: {{ palette[theme].subtext1 }};
+    --subtext0: {{ palette[theme].subtext0 }};
+    --overlay2: {{ palette[theme].overlay2 }};
+    --overlay1: {{ palette[theme].overlay1 }};
+    --overlay0: {{ palette[theme].overlay0 }};
+    --surface2: {{ palette[theme].surface2 }};
+    --surface1: {{ palette[theme].surface1 }};
+    --surface0: {{ palette[theme].surface0 }};
+    --base: {{ palette[theme].base }};
+    --mantle: {{ palette[theme].mantle }};
+    --crust: {{ palette[theme].crust }};
+}
+
+* {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 600;
+    font-family: '{{ font }}';
+    margin: 0;
+    padding: 0;
+}
+
+.yasb-bar {
+    padding: 5px 15px;
+    margin: 0;
+    background-color: var(--base);
+}
+
+.widget {
+    padding: 0 12px;
+    margin: 0;
+}
+
+.icon {
+    font-size: 14px;
+}
+
+.widget .label {
+    padding: 0px 10px 0 5px;
+}
+
+/* Home */
+
+.home-widget {
+    background-color: #24273a;
+    border-radius: 15px;
+    height: 35px;
+    padding: 0 12px;
+    margin: 0 10px 0 0;
+}
+
+.home-widget .icon {
+    color: var(--blue);
+    padding: 0 5px 0 0;
+    font-size: 14px;
+}
+
+.home-widget .icon:hover {
+    color: var(--text);
+}
+
+.home-menu {
+    background-color: var(--mantle);
+}
+
+.home-menu .menu-item {
+    padding: 10px 48px 10px 16px;
+    font-size: 14px;
+    font-family: '{{ font }}', Tahoma, Verdana, sans-serif;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.home-menu .menu-item:hover {
+    background-color: #24273a;
+    color: #fff;
+}
+
+.home-menu .separator {
+    max-height: 1px;
+    background-color: var(--surface1);
+}
+
+/* GlazeWM */
+
+.glazewm-workspaces {
+    background-color: #24273a;
+    border-radius: 15px;
+    height: 35px;
+}
+
+.glazewm-workspaces .ws-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0px 4px;
+}
+
+.glazewm-workspaces .ws-btn.active_populated {
+    color: var(--mauve);
+    background-color: var(--mauve);
+    width: 26px;
+    height: 13px;
+    border-radius: 6px;
+    margin: 0px 3px 0 7px;
+    border: none;
+}
+
+.glazewm-workspaces .ws-btn.active_empty {
+    color: var(--mauve);
+    border: none;
+}
+
+.glazewm-workspaces .ws-btn.populated,
+.glazewm-workspaces .ws-btn.empty {
+    color: var(--overlay1);
+    border: none;
+}
+
+/* Media */
+
+.media-widget {
+    background-color: #24273a;
+    border-radius: 15px;
+    height: 35px;
+    margin: 0 0 0 10px;
+}
+
+.media-widget .btn.play,
+.media-widget .btn.prev,
+.media-widget .btn.next {
+    font-size: 20px;
+    color: var(--subtext0);
+    padding: 0 5px;
+}
+
+.media-widget .btn.play:hover,
+.media-widget .btn.prev:hover,
+.media-widget .btn.next:hover {
+    color: var(--text);
+}
+
+.media-menu {
+    min-width: 420px;
+    max-width: 420px;
+    background-color: {{ palette[theme].mantle }};
+    border-radius: 8px;
+}
+
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    font-family: '{{ font }}', Tahoma, Verdana, sans-serif;
+}
+
+.media-menu .artist {
+    font-size: 13px;
+    color: var(--mauve);
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.media-menu .source {
+    color: var(--base);
+}
+
+.media-menu .btn {
+    font-family: '{{ font }}', 'Segoe Fluent Icons';
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px 2px 0px 2px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: 20px;
+    color: var(--overlay0);
+}
+
+.media-menu .btn.prev {
+    margin-left: 10px;
+}
+
+.media-menu .btn:hover {
+    color: var(--overlay2);
+}
+
+.media-menu .btn.play {
+    font-size: 24px
+}
+
+.media-menu .btn.disabled:hover,
+.media-menu .btn.disabled {
+    color: #4e525c;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.media-menu .playback-time {
+    font-size: 13px;
+    font-family: '{{ font }}', Tahoma, Verdana, sans-serif;
+    color: var(--mauve);
+    margin-top: 20px;
+    min-width: 100px;
+}
+
+.media-menu .progress-slider {
+    height: 10px;
+    margin: 5px 4px;
+    border-radius: 3px;
+}
+
+.media-menu .progress-slider::groove {
+    background: transparent;
+    height: 2px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+
+}
+
+.media-menu .progress-slider::groove:hover {
+    background: transparent;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.media-menu .progress-slider::sub-page {
+    background: var(--mauve);
+    border-radius: 3px;
+    height: 4px;
+}
+
+/* Clock */
+
+.clock-widget .widget-container {
+    background-color: #24273a;
+    border-radius: 15px;
+    height: 35px;
+}
+
+.clock-widget .widget-container .icon {
+    color: var(--blue);
+    margin: 0 5px 0 15px;
+}
+
+/* Calendar */
+
+.calendar {
+    background-color: var(--mantle);
+    padding: 10px;
+    border: 1px solid var(--surface0);
+    border-radius: 10px;
+}
+
+.calendar .calendar-table::item {
+    background-color: #24273a;
+    color: var(--overlay1);
+    font-family: '{{ font }}', Tahoma, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.calendar .calendar-table::item:selected {
+    color: var(--text);
+}
+
+.calendar .day-label {
+    margin-top: 20px;
+}
+
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+    font-family: '{{ font }}', Tahoma, Verdana, sans-serif;
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 700;
+    min-width: 180px;
+    max-width: 180px;
+}
+
+.calendar .month-label {
+    font-weight: normal;
+}
+
+.calendar .date-label {
+    font-size: 88px;
+    font-weight: 900;
+    color: var(--text);
+    margin-top: -20px;
+}
+
+/* Taskbar (currently active apps) */
+
+.taskbar-widget .app-icon {
+    font-size: 12px;
+    padding: 0 0 0 10px;
+}
+
+/* Wifi */
+
+.wifi-widget .widget-container {
+    background-color: #24273a;
+    border-radius: 15px;
+    height: 35px;
+}
+
+.wifi-widget .widget-container .icon {
+    font-size: 14px;
+    color: var(--yellow);
+    padding: 0 5px 0 10px;
+}
+
+.wifi-widget .widget-container .label {
+    padding: 0 10px 0 0;
+}
+
+/* Volume */
+
+.volume-widget {
+    background-color: #24273a;
+    border-radius: 15px;
+    height: 35px;
+    padding: 0 5px;
+}
+
+.volume-widget .label {
+    padding: 0 5px 0 0;
+}
+
+.volume-widget .icon {
+    font-size: 16px;
+    color: var(--peach);
+    padding: 0 0 0 5px;
+}
+
+.audio-menu {
+    background-color: var(--mantle);
+}
+
+/* Battery */
+
+.battery-widget .widget-container {
+    background-color: #24273a;
+    border-radius: 15px;
+    height: 35px;
+}
+
+.battery-widget .widget-container .icon.status-low {
+    color: var(--red);
+    padding: 0 5px 0 10px;
+}
+
+.battery-widget .widget-container .icon.status-medium {
+    color: var(--yellow);
+    padding: 0 5px 0 10px;
+}
+
+.battery-widget .widget-container .icon.status-high,
+.battery-widget .widget-container .icon.status-full {
+    color: var(--green);
+    padding: 0 5px 0 10px;
+}
+
+.battery-widget .widget-container .icon.status-charging {
+    color: var(--blue);
+    padding: 0 0 0 10px;
+}
+
+/* Power menu */
+
+.power-menu-widget {
+    background-color: #24273a;
+    border-radius: 15px;
+    height: 35px;
+}
+
+.power-menu-widget .label {
+    color: var(--red);
+    font-size: 14px;
+    padding: 0 5px 0 0;
+}
+
+.power-menu-popup {
+    background-color: transparent;
+}
+
+.power-menu-popup .button {
+    padding: 0;
+    width: 180px;
+    height: 230px;
+    border-radius: 8px;
+    background-color: var(--base);
+    color: var(--text);
+    border-left: 4px solid rgba(58, 59, 83, 0);
+    border-right: 4px solid rgba(58, 59, 83, 0);
+    border-top: 8px solid rgba(58, 59, 83, 0);
+    border-bottom: 8px solid rgba(58, 59, 83, 0);
+    margin: 0px;
+}
+
+.power-menu-popup .button.hover {
+    background-color: var(--surface0);
+    border-left: 4px solid var(--surface0);
+    border-right: 4px solid var(--surface0);
+    border-top: 8px solid var(--surface0);
+    border-bottom: 8px solid var(--surface0);
+}
+
+.power-menu-popup .button .label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--subtext1);
+}
+
+.power-menu-popup .button .icon {
+    font-size: 64px;
+    padding-top: 32px;
+    color: var(--subtext1);
+}
+
+.power-menu-popup .button.cancel .icon {
+    padding: 0;
+    margin: 0;
+}
+
+.power-menu-popup .button.cancel .label {
+    color: var(--red);
+    margin: 0;
+}
+
+.power-menu-popup .button.cancel {
+    height: 32px;
+    border-radius: 4px;
+}
+
+.uptime {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--subtext0);
+}
+
+/* Weather */
+
+/*
+.weather-widget {
+    padding: 0 5px;
+}
+.weather-widget .icon {
+	font-size: 18px;
+	margin: 0 2px 1px 0;
+    color: var(--yellow);
+}
+*/
+
+/* Wallpaper caraousel */
+
+/*
+.wallpapers-widget {
+    padding: 0 5px;
+}
+.wallpapers-gallery-window {
+    background-color: rgba(85, 42, 240, 0.01);
+    border: 0;
+    margin: 0;
+}
+.wallpapers-gallery-buttons {
+    background-color:rgba(255, 255, 255, 0);
+    color:var(--text);
+    border: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin:0 8px 8px 8px;
+    width: 600px;
+}
+.wallpapers-gallery-buttons:hover {
+    background-color:rgba(255, 255, 255, 0.1)
+}
+.wallpapers-gallery-image {
+    border: 4px solid transparent;
+    border-radius: 10px;
+}
+.wallpapers-gallery-image:hover {
+    border: 4px solid var(--sapphire);
+}
+.wallpapers-gallery-image.focused {
+    border: 4px solid var(--sapphire);
+}
+*/

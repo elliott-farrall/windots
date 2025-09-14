@@ -1,0 +1,109 @@
+@media (prefers-color-scheme: {{ shade }}) {
+    @-moz-document url-prefix("about:") {
+        :root {
+            --in-content-page-color: {{ palette[theme].text }} !important;
+            --color-accent-primary: {{ palette[theme].mauve }} !important;
+            --color-accent-primary-hover: rgb(208, 212, 250) !important;
+            --color-accent-primary-active: rgb(194, 184, 248) !important;
+            background-color: {{ palette[theme].base }} !important;
+            --in-content-page-background: {{ palette[theme].base }} !important;
+        }
+    }
+
+    @-moz-document url("about:newtab"), url("about:home") {
+        :root {
+            --newtab-background-color: {{ palette[theme].base }} !important;
+            --newtab-background-color-secondary: {{ palette[theme].surface0 }} !important;
+            --newtab-element-hover-color: {{ palette[theme].surface0 }} !important;
+            --newtab-text-primary-color: {{ palette[theme].text }} !important;
+            --newtab-wordmark-color: {{ palette[theme].text }} !important;
+        }
+
+        .icon {
+            color: {{ palette[theme].mauve }} !important;
+        }
+
+        .search-wrapper .logo-and-wordmark .logo {
+            background:
+                url("zen-logo-{{ theme }}.svg"),
+                url("https://raw.githubusercontent.com/IAmJafeth/zen-browser/main/themes/{{ theme | capitalize }}/{{ accent | capitalize }}/zen-logo-macchiato.svg") no-repeat center !important;
+            display: inline-block !important;
+            height: 82px !important;
+            width: 82px !important;
+            background-size: 82px !important;
+        }
+
+        @media (max-width: 609px) {
+            .search-wrapper .logo-and-wordmark .logo {
+                background-size: 64px !important;
+                height: 64px !important;
+                width: 64px !important;
+            }
+        }
+
+        .card-outer:is(:hover, :focus, .active):not(.placeholder) .card-title {
+            color: {{ palette[theme].mauve }} !important;
+        }
+
+        .top-site-outer .search-topsite {
+            background-color: {{ palette[theme].blue }} !important;
+        }
+
+        .compact-cards .card-outer .card-context .card-context-icon.icon-download {
+            fill: {{ palette[theme].green }} !important;
+        }
+    }
+
+    @-moz-document url-prefix("about:preferences") {
+        :root {
+            --zen-colors-tertiary: {{ palette[theme].base }} !important;
+            --in-content-text-color: {{ palette[theme].text }} !important;
+            --link-color: {{ palette[theme].mauve }} !important;
+            --link-color-hover: rgb(208, 212, 250) !important;
+            --zen-colors-primary: {{ palette[theme].surface0 }} !important;
+            --in-content-box-background: {{ palette[theme].surface0 }} !important;
+            --zen-primary-color: {{ palette[theme].mauve }} !important;
+        }
+
+        groupbox,
+        moz-card {
+            background: {{ palette[theme].base }} !important;
+        }
+
+        button,
+        groupbox menulist {
+            background: {{ palette[theme].surface0 }} !important;
+            color: {{ palette[theme].text }} !important;
+        }
+
+        .main-content {
+            background-color: {{ palette[theme].mantle }} !important;
+        }
+    }
+
+    @-moz-document url-prefix("about:addons") {
+        :root {
+            --zen-dark-color-mix-base: {{ palette[theme].base }} !important;
+            --background-color-box: {{ palette[theme].base }} !important;
+        }
+    }
+
+    @-moz-document url-prefix("about:protections") {
+        :root {
+            --zen-primary-color: {{ palette[theme].base }} !important;
+            --social-color: {{ palette[theme].mauve }} !important;
+            --coockie-color: {{ palette[theme].teal }} !important;
+            --fingerprinter-color: {{ palette[theme].yellow }} !important;
+            --cryptominer-color: {{ palette[theme].mauve }} !important;
+            --tracker-color: {{ palette[theme].green }} !important;
+            --in-content-primary-button-background-hover: rgb(84, 89, 116) !important;
+            --in-content-primary-button-text-color-hover: {{ palette[theme].text }} !important;
+            --in-content-primary-button-background: #45475a !important;
+            --in-content-primary-button-text-color: {{ palette[theme].text }} !important;
+        }
+
+        .card {
+            background-color: {{ palette[theme].surface0 }} !important;
+        }
+    }
+}

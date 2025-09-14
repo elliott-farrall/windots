@@ -1,0 +1,44 @@
+- name: Install Steam
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: steam
+
+- name: Install Millenium
+  hosts: windows
+  collections:
+    - ansible.windows
+
+  tasks:
+    - name: Install via Script
+      win_powershell:
+        executable: pwsh.exe
+        script: |
+          iwr -useb 'https://steambrew.app/install.ps1' | iex
+          $Ansible.Changed = $false
+
+- name: Install R2Modman
+  hosts: windows
+
+  tasks:
+    - name: Install via Scoop
+      community.windows.win_scoop:
+        name: r2modman
+
+- name: Install Nvidia App
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      chocolatey.chocolatey.win_chocolatey:
+        name: nvidia-app
+
+- name: Install Razer Synapse
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      chocolatey.chocolatey.win_chocolatey:
+        name: razer-synapse-4

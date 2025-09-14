@@ -1,0 +1,23 @@
+- name: Install Discord
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: betterdiscord
+
+- name: Setup Discord
+  hosts: windows
+  
+  tasks:
+    - name: Install Discord Theme
+      win_template:
+        src: theme.css
+        dest: AppData\Roaming\BetterDiscord\themes\{{ theme }}.theme.css
+
+    - name: Enable Discord Theme
+      debug:
+        msg:
+          - Please enable the Catppuccin {{ theme | capitalize }} theme in BetterDiscord settings
+          - 1) Go to BetterDiscord Settings > Themes
+          - 2) Enable Catppuccin {{ theme | capitalize }}

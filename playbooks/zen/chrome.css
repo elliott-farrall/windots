@@ -1,0 +1,111 @@
+* {
+    font-family: "{{ font }}" !important;
+}
+
+#zen-essentials-container {
+    margin-bottom: 3px !important;
+}
+
+#zen-current-workspace-indicator-container,
+.titlebar-buttonbox-container {
+    display: none !important;
+}
+
+@media (prefers-color-scheme: {{ shade }}) {
+    :root {
+        --zen-colors-primary: {{ palette[theme].base }} !important;
+        --zen-colors-secondary: {{ palette[theme].surface0 }} !important;
+        --zen-colors-tertiary: {{ palette[theme].mantle }} !important;
+        --zen-colors-border: {{ palette[theme].surface0 }} !important;
+
+        --zen-primary-color: {{ palette[theme].mauve }} !important;
+        --zen-themed-toolbar-bg: {{ palette[theme].mantle }} !important;
+        --zen-main-browser-background: {{ palette[theme].mantle }} !important;
+
+        --toolbarbutton-icon-fill: {{ palette[theme].text }} !important;
+        --toolbar-field-color: {{ palette[theme].text }} !important;
+        --toolbar-field-focus-color: {{ palette[theme].text }} !important;
+        --toolbar-color: {{ palette[theme].text }} !important;
+        --toolbar-bgcolor: {{ palette[theme].surface0 }} !important;
+        --toolbox-bgcolor-inactive: {{ palette[theme].mantle }} !important;
+
+        --lwt-text-color: {{ palette[theme].text }} !important;
+        --lwt-sidebar-text-color: {{ palette[theme].text }} !important;
+        --lwt-sidebar-background-color: {{ palette[theme].mantle }} !important;
+
+        --sidebar-text-color: {{ palette[theme].text }} !important;
+        --tab-selected-textcolor: rgb(193, 200, 246) !important;
+
+        --arrowpanel-color: {{ palette[theme].text }} !important;
+        --arrowpanel-background: {{ palette[theme].base }} !important;
+
+        --newtab-background-color: {{ palette[theme].base }} !important;
+        --newtab-text-primary-color: {{ palette[theme].text }} !important;
+        --newtab-primary-action-background: {{ palette[theme].mauve }} !important;
+    }
+
+    /* Zen UI elements */
+    #zen-workspaces-button {
+        background-color: {{ palette[theme].base }} !important;
+    }
+
+    #zenEditBookmarkPanelFaviconContainer {
+        background: {{ palette[theme].mantle }} !important;
+    }
+
+    /* URL bar */
+    #urlbar-container,
+    #urlbar-background {
+        background-color: {{ palette[theme].mantle }} !important;
+    }
+
+    .urlbar[breakout][breakout-extend]>#urlbar-background {
+        background-color: {{ palette[theme].mantle }} !important;
+        border: 1px solid {{ palette[theme].surface0 }} !important;
+    }
+
+    .urlbarView-title,
+    .urlbarView-secondary {
+        color: {{ palette[theme].text }} !important;
+    }
+
+    .urlbarView-url,
+    .urlbarView-url strong {
+        color: {{ palette[theme].mauve }} !important;
+    }
+
+    .urlbarView-action,
+    .urlbarView-row[selected] .urlbarView-action {
+        color: {{ palette[theme].subtext1 }} !important;
+    }
+
+    .urlbarView-row[selected],
+    .urlbarView-row[selected]>.urlbarView-row-inner {
+        background-color: {{ palette[theme].surface0 }} !important;
+        color: {{ palette[theme].text }} !important;
+    }
+
+    .urlbarView-row[selected] .urlbarView-title strong {
+        color: {{ palette[theme].text }} !important;
+        font-weight: bold !important;
+    }
+
+    .urlbarView-row[selected] .urlbarView-favicon {
+        background-color: {{ palette[theme].surface2 }} !important;
+        border-radius: 4px !important;
+    }
+
+    .urlbarView-body-inner {
+        border: none !important;
+    }
+
+    .urlbar-input-box {
+        text-align: center;
+    }
+
+    /* New Tab Shortcuts */
+    .content-shortcuts {
+        background-color: {{ palette[theme].base }} !important;
+        border-color: {{ palette[theme].mauve }} !important;
+    }
+}

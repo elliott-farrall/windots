@@ -1,0 +1,68 @@
+- name: Install WindHawk
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: windhawk
+
+    - name: Create WindHawk Cache
+      win_file:
+        path: .cache\windhawk\mods
+        state: directory
+
+- name: Setup WindHawk - UX Theme Hook
+  hosts: windows
+  
+  tasks:
+    - name: Upload WindHawk Mod
+      win_template:
+        src: mods/uxtheme-hook.reg
+        dest: .cache\windhawk\mods\uxtheme-hook.reg
+
+    - name: Import WindHawk Mod
+      win_regmerge:
+        path: .cache\windhawk\mods\uxtheme-hook.reg
+        compare_to: HKLM:\SOFTWARE\Windhawk\Engine\Mods\uxtheme-hook
+
+- name: Setup WindHawk - Notifications Center
+  hosts: windows
+  
+  tasks:
+    - name: Upload WindHawk Mod
+      win_template:
+        src: mods/windows-11-notification-center-styler.reg
+        dest: .cache\windhawk\mods\windows-11-notification-center-styler.reg
+
+    - name: Import WindHawk Mod
+      win_regmerge:
+        path: .cache\windhawk\mods\windows-11-notification-center-styler.reg
+        compare_to: HKLM:\SOFTWARE\Windhawk\Engine\Mods\windows-11-notification-center-styler
+
+- name: Setup WindHawk - Start Menu
+  hosts: windows
+  
+  tasks:
+    - name: Upload WindHawk Mod
+      win_template:
+        src: mods/windows-11-start-menu-styler.reg
+        dest: .cache\windhawk\mods\windows-11-start-menu-styler.reg
+
+    - name: Import WindHawk Mod
+      win_regmerge:
+        path: .cache\windhawk\mods\windows-11-start-menu-styler.reg
+        compare_to: HKLM:\SOFTWARE\Windhawk\Engine\Mods\windows-11-start-menu-styler
+
+- name: Setup WindHawk - Task Bar
+  hosts: windows
+  
+  tasks:
+    - name: Upload WindHawk Mod
+      win_template:
+        src: mods/windows-11-taskbar-styler.reg
+        dest: .cache\windhawk\mods\windows-11-taskbar-styler.reg
+
+    - name: Import WindHawk Mod
+      win_regmerge:
+        path: .cache\windhawk\mods\windows-11-taskbar-styler.reg
+        compare_to: HKLM:\SOFTWARE\Windhawk\Engine\Mods\windows-11-taskbar-styler

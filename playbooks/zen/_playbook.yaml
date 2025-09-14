@@ -1,0 +1,29 @@
+- name: Install Zen
+  hosts: windows
+
+  tasks:
+    - name: Install Manually
+      debug:
+        msg:
+          - Zen must be installed manually!
+
+- name: Setup Zen
+  hosts: windows
+  
+  tasks:
+    - name: Install Zen Theme - Chrome
+      win_template:
+        src: chrome.css
+        dest: '%AppData%\zen\Profiles\vmzj0x74.Default (release)\chrome\userChrome.css'
+
+    - name: Install Zen Theme - Content
+      win_template:
+        src: content.css
+        dest: '%AppData%\zen\Profiles\vmzj0x74.Default (release)\chrome\userContent.css'
+
+    - name: Enable Zen Theme
+      debug:
+        msg:
+          - Enable custom styles in Zen
+          - 1) Go to about:config
+          - 2) Enable toolkit.legacyUserProfileCustomizations.stylesheets

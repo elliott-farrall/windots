@@ -1,0 +1,24 @@
+- name: Install Powershell
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: pwsh
+
+- name: Setup Powershell
+  hosts: windows
+  
+  tasks:
+    - name: Install Powershell Profile
+      win_template:
+        src: profile.ps1
+        dest: OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+
+- name: Install Starship
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: starship

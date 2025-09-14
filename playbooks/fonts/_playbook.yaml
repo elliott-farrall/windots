@@ -1,0 +1,7 @@
+- name: Install Nerd Fonts - JetBrainsMono
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: nerd-fonts-JetBrainsMono 

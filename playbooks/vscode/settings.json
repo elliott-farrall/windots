@@ -1,0 +1,60 @@
+{
+    "update.mode": "none",
+    
+    "workbench.colorTheme": "Catppuccin {{ theme | capitalize }}",
+    "workbench.iconTheme": "catppuccin-{{ theme }}",
+    "catppuccin.accentColor": "{{ accent }}",
+    "catppuccin.bracketMode": "neovim",
+    "catppuccin.workbenchMode": "{{ 'flat' if flat else 'default' }}",
+
+    "editor.fontFamily": "{{ font }}",
+    "editor.codeLensFontFamily": "\"{{ font }}\"",
+
+    "editor.fontLigatures": false,
+    "editor.minimap.enabled": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.linkedEditing": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+
+    "workbench.colorCustomizations": {},
+    // "workbench.statusBar.visible": false,
+    "workbench.startupEditor": "none",
+    "workbench.layoutControl.enabled": false,
+    "workbench.list.smoothScrolling": true,
+    // "workbench.activityBar.location": "top",
+    "workbench.editor.empty.hint": "hidden",
+
+    "explorer.decorations.colors": false,
+    "explorer.compactFolders": false,
+    "explorer.confirmDragAndDrop": false,
+
+    // "window.titleBarStyle": "native",
+    "window.title": " ",
+    "window.menuBarVisibility": "compact",
+    "window.commandCenter": false,
+    "window.customTitleBarVisibility": "never",
+
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.fontFamily": "{{ font }}",
+
+    "apc.electron": {
+        "frame": false,
+        "titleBarStyle": "hidden"
+    },
+    "apc.font.family": "{{ font }}",
+    "apc.monospace.font.family": "{{ font }}",
+    "glassit.alpha": 240,
+
+    "files.autoSave": "afterDelay",
+
+    "git.defaultCloneDirectory": "c:\\Users\\ellio\\Documents\\Repositories",
+    "git.allowForcePush": true,
+    "git.autofetch": true,
+
+    "github.copilot.nextEditSuggestions.enabled": true
+    
+}

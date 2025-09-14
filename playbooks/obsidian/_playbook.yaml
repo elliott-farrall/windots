@@ -1,0 +1,7 @@
+- name: Install Obsidian
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: obsidian

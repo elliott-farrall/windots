@@ -1,0 +1,15 @@
+- name: Setup Windows Terminal
+  hosts: windows
+  
+  tasks:
+    - name: Find Terminal Settings
+      win_find:
+        paths: AppData\Local\Packages
+        patterns: Microsoft.WindowsTerminal_*
+        file_type: directory
+      register: terminal_package
+
+    - name: Install Terminal Settings
+      win_template:
+        src: settings.json
+        dest: '{{ terminal_package.files[0].path }}\LocalState\settings.json'

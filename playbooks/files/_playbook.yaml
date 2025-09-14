@@ -1,0 +1,46 @@
+- name: Install Files
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: files
+
+- name: Setup Files
+  hosts: windows
+  collections:
+    - ansible.windows
+  
+  tasks:
+    - name: Find Files Settings
+      win_find:
+        paths: AppData\Local\Packages
+        patterns: Files_*
+        file_type: directory
+      register: files_package
+
+    - name: Run Files Setup Script
+      win_powershell:
+        executable: pwsh.exe
+        script: |
+          Get-Process Files -ErrorAction SilentlyContinue | Stop-Process -Force
+          Get-Process Files.App.Server -ErrorAction SilentlyContinue | Stop-Process -Force
+
+          $path = {{ files_package.files[0].path }}\LocalState\settings\user_settings.json
+          $config = Get-Content -Path $path | ConvertFrom-Json -AsHashtable -Depth 10
+
+          $config.AppThemeAddressBarBackgroundColor = {{ palette[theme].base }}
+          $config.AppThemeFileAreaBackgroundColor = {{ palette[theme].base }}
+          $config.AppThemeSidebarBackgroundColor = {{ palette[theme].mantle }}
+          $config.AppThemeBackgroundColor = {{ palette[theme].mantle if flat else palette[theme].crust }}
+
+          $config | ConvertTo-Json -Depth 10 | Set-Content -Path $path
+
+          $Ansible.Changed = $false
+
+    - name: Setup Files Theme
+      debug:
+        msg:
+          - Set base theme in Files
+          - 1) Go to Settings > Appearances
+          - 2) Select '{{ shade | capitalize }}' base theme

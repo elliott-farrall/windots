@@ -1,0 +1,80 @@
+- name: Install Windows Themes
+  hosts: windows
+  vars:
+    themes_dir: C:\Windows\Resources\Themes
+  
+  tasks:
+    - name: Install Catppuccin Resources
+      win_copy:
+        src: Catppuccin
+        dest: '{{ themes_dir }}\Catppuccin'
+
+    - name: Install Catppuccin - Frappe NA
+      win_template:
+        src: Catppuccin - Frappe NA.theme
+        dest: '{{ themes_dir }}\Catppuccin - Frappe NA.theme'
+
+    - name: Install Catppuccin - Frappe Night NA
+      win_template:
+        src: Catppuccin - Frappe Night NA.theme
+        dest: '{{ themes_dir }}\Catppuccin - Frappe Night NA.theme'
+
+    - name: Install Catppuccin - Frappe Night
+      win_template:
+        src: Catppuccin - Frappe Night.theme
+        dest: '{{ themes_dir }}\Catppuccin - Frappe Night.theme'
+
+    - name: Install Catppuccin - Frappe
+      win_template:
+        src: Catppuccin - Frappe.theme
+        dest: '{{ themes_dir }}\Catppuccin - Frappe.theme'
+
+    - name: Install Catppuccin - Latte NA
+      win_template:
+        src: Catppuccin - Latte NA.theme
+        dest: '{{ themes_dir }}\Catppuccin - Latte NA.theme'
+
+    - name: Install Catppuccin - Latte
+      win_template:
+        src: Catppuccin - Latte.theme
+        dest: '{{ themes_dir }}\Catppuccin - Latte.theme'
+      
+    - name: Install Catppuccin - Macchiato NA
+      win_template:
+        src: Catppuccin - Macchiato NA.theme
+        dest: '{{ themes_dir }}\Catppuccin - Macchiato NA.theme'
+
+    - name: Install Catppuccin - Macchiato Night NA
+      win_template:
+        src: Catppuccin - Macchiato Night NA.theme
+        dest: '{{ themes_dir }}\Catppuccin - Macchiato Night NA.theme'
+
+    - name: Install Catppuccin - Macchiato Night
+      win_template:
+        src: Catppuccin - Macchiato Night.theme
+        dest: '{{ themes_dir }}\Catppuccin - Macchiato Night.theme'
+
+    - name: Install Catppuccin - Macchiato
+      win_template:
+        src: Catppuccin - Macchiato.theme
+        dest: '{{ themes_dir }}\Catppuccin - Macchiato.theme'
+
+    - name: Install Catppuccin - Mocha NA
+      win_template:
+        src: Catppuccin - Mocha NA.theme
+        dest: '{{ themes_dir }}\Catppuccin - Mocha NA.theme'
+
+    - name: Install Catppuccin - Mocha Night NA
+      win_template:
+        src: Catppuccin - Mocha Night NA.theme
+        dest: '{{ themes_dir }}\Catppuccin - Mocha Night NA.theme'
+
+    - name: Install Catppuccin - Mocha Night
+      win_template:
+        src: Catppuccin - Mocha Night.theme
+        dest: '{{ themes_dir }}\Catppuccin - Mocha Night.theme'
+
+    - name: Install Catppuccin - Mocha
+      win_template:
+        src: Catppuccin - Mocha.theme
+        dest: '{{ themes_dir }}\Catppuccin - Mocha.theme'

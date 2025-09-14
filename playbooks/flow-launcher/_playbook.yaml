@@ -1,0 +1,46 @@
+- name: Install Flow Launcher
+  hosts: windows
+
+  tasks:
+    - name: Install via Chocolatey
+      win_chocolatey:
+        name: flow-launcher
+
+- name: Setup Flow Launcher
+  hosts: windows
+  collections:
+    - ansible.windows
+
+  tasks:
+    - name: Stop Flow Launcher Process
+      win_powershell:
+        executable: pwsh.exe
+        script: |
+          Get-Process Flow.Launcher -ErrorAction SilentlyContinue | Stop-Process -Force
+          $Ansible.Changed = $false
+
+    - name: Install Flow Launcher Config Backup
+      win_template:
+        src: settings.json
+        dest: AppData\Roaming\FlowLauncher\Settings\Settings.json.bak
+
+    - name: Install Flow Launcher Config
+      win_template:
+        src: settings.json
+        dest: AppData\Roaming\FlowLauncher\Settings\Settings.json
+
+    - name: Create Flow Launcher Task
+      win_scheduled_task:
+        name: FlowLauncher
+        actions:
+          - path: '{{ user_dir }}\AppData\Local\FlowLauncher\Flow.Launcher.exe'
+        enabled: true
+      vars:
+        user_dir: C:\Users\{{ ansible_user | truncate(5, True, '', 0) }}
+
+    - name: Start Flow Launcher Task
+      win_powershell:
+        executable: pwsh.exe
+        script: |
+          Start-ScheduledTask -TaskName FlowLauncher
+          $Ansible.Changed = $false
