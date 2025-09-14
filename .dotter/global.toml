@@ -1,0 +1,41 @@
+[default]
+depends = ["glaze-wm", "yasb", "flow-launcher", "windhawk", "nilesoft-shell", "powershell", "terminal", "files", "zen", "vscode", "discord"]
+
+[default.variables]
+font = "JetBrainsMono NF"
+
+[glaze-wm.files]
+glaze-wm = "~/.glzr/glazewm"
+
+[yasb.files]
+yasb = "~/.config/yasb"
+
+[flow-launcher.files]
+flow-launcher = "$APPDATA/FlowLauncher/Settings"
+
+[windhawk.files]
+
+
+[nilesoft-shell.files]
+nilesoft-shell = "$ProgramFiles/Nilesoft Shell/imports"
+
+[powershell.files]
+powershell = "~/Documents/PowerShell"
+
+[terminal.files]
+terminal = "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
+
+[files.files]
+
+
+[zen.files]
+zen = "$APPDATA/zen/Profiles/vmzj0x74.Default (release)/chrome"
+
+[vscode.files]
+vscode = "$APPDATA/Code/User"
+
+[discord.files]
+discord = "$APPDATA/BetterDiscord/themes"
+
+[settings]
+default_target_type = "template"
