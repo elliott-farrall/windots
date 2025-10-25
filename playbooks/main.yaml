@@ -62,17 +62,25 @@
   hosts: windows
 
   tasks:
-    - name: Launch Desktop Packages
+    - name: Start Window Manager
       win_scheduled_task:
-        name: Launch Desktop
+        name: Start Window Manager
         triggers:
           - type: logon
-
-
         actions:
           - path: '{{ prog_dir }}\glzr.io\GlazeWM\cli\glazewm.exe'
           - path: '{{ prog_dir }}\Yasb\yasb.exe'
+
+      vars:
+        prog_dir: C:\Program Files
+    
+    - name: Start Launcher
+      win_scheduled_task:
+        name: Start Launcher
+        triggers:
+          - type: logon
+        actions:
           - path: '{{ user_dir }}\AppData\Local\FlowLauncher\Flow.Launcher.exe'
+
       vars:
         user_dir: C:\Users\{{ ansible_user | truncate(5, True, '', 0) }}
-        prog_dir: C:\Program Files
