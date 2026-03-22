@@ -1,1 +1,3 @@
-inventory.yaml
+.direnv/
+.ansible/
+.venv/
